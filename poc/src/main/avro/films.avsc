@@ -1,0 +1,28 @@
+{
+    "type": "record",
+    "namespace": "com.massmutual.poc.verticatopostgres",
+    "name": "Film",
+    "doc": "Film schema",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "arg.properties": {
+                    "regex": "User_[1-9]{0,1}"
+                }
+            },
+            "doc": "The int type is a 32-bit signed integer."
+        },
+        {
+            "name": "name",
+            "type": {
+                "type": "string",
+                "arg.properties": {
+                    "regex": "[a-zA-Z]+"
+                }
+            },
+            "doc": "The string is a unicode character sequence."
+        }
+    ]
+}

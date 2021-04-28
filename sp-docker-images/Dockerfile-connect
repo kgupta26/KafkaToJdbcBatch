@@ -1,0 +1,18 @@
+FROM cnfldemos/cp-server-connect-datagen:0.3.2-5.5.0
+
+# first get the mm cert bundle
+ADD https://artifactory.awsmgmt.massmutual.com/artifactory/mm-certificates/mm-cert-bundle.jks /mm-cert-bundle.jks
+
+# replace the confluent hub command a little where mm cert bundle is used
+COPY ./files/confluent-hub /usr/bin/confluent-hub
+
+##### Extra Connectors #####
+
+# For Vertica we only need the driver for kafka-connect-jdbc connector to do the rest
+#ADD https://www.vertica.com/client_drivers/10.0.x/10.0.1-0/vertica-jdbc-10.0.1-0.jar /usr/share/java/kafka-connect-jdbc/vertica-jdbc-10.0.1-0.jar
+
+# Teradata
+#RUN confluent-hub install --no-prompt confluentinc/kafka-connect-teradata:latest
+#COPY ./jars/terajdbc4.jar /usr/share/confluent-hub-components/confluentinc-kafka-connect-teradata/lib/
+
+#############################
