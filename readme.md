@@ -1,3 +1,11 @@
+
+
+## Docker Settings
+
+* CPUs: 6
+* Memory: 6.00 GB
+* Swap: 1 GB
+
 # Kafka To JDBC POC
 
 This is a Proof of Concept repository. The POC attempts to ingest data records from a specific kafka topic and insert them into a database staging table. After a certain *time*, we need to call a stored procedure to clean/deduplicate/merge the staging table into the target table. The time aspect is something that is sort of "not figured" out - that is we don't really know when new records are be coming in. Perhaps the topic was "quiet" for about 14 hours straight before it went lit :fire: and new set of streams were produced, say 50,000 records, in just a couple of minutes. And then perhaps it was quiet for about 11 hours before it got pumped with another 58,000.
@@ -102,9 +110,9 @@ If you check control center again, you will notice now Jon is also helping out!
 
 Great! Now we have the consumers ready to ingest `film` topic. We can see both Jon and Lucas are actors and consuming the topic actively.
 
-![image-20210428111937397](image-20210428111937397.png)
+![image-20210428111937397](images/image-20210428111937397.png)
 
-![image-20210428115525347](image-20210428115525347.png)
+![image-20210428115525347](images/image-20210428115525347.png)
 
 ## Data Generation
 
@@ -214,7 +222,7 @@ Try it couple times. The number should increase consistently.
 2021-04-28 12:32:14,700 [TopicToPostgres-akka.actor.default-dispatcher-14] INFO  com.github.massmutual.poc.main.ProcessOrchestrator$ - Initiating stored procedure at batch count: 106
 ```
 
-The above is snapshot of what you would be seeing in the logs. These logs are asynchronous and it can be challenging to udnerstand the behavior and sequence of things happening. First I would like to apologize for making you read the above snippet :sweat_smile: . Please feel free to ignore at sight! However, I would like you to make a simple note. Look at the string 
+The above is snapshot of what you would be seeing in the logs. These logs are asynchronous and it can be challenging to understand the behavior and sequence of things happening. First I would like to apologize for making you read the above snippet :sweat_smile: . Please feel free to ignore at sight! However, I would like you to make a simple note. Look at the string 
 
 ```scala
 2021-04-28 12:32:13,183 [TopicToPostgres-akka.actor.default-dispatcher-14] INFO  com.github.massmutual.poc.main.ProcessOrchestrator$ - total records processed 98
