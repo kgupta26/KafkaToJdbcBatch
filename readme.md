@@ -452,4 +452,4 @@ We can conclude that the production rate and consumption rate is matched as we c
 * We have an actor for Lucas and Jon. We also have a separate actor that exposes a server on port 8080 - through which we were able to communicate with our application and check its status and update consumer settings without bringing the application down.
 * Overall design
 
-![image-20210428190419649](/Users/mm10444/Projects/streaming-platform/KafkaToJdbcBatch/image-20210428190419649.png)
+![image-20210428190419649](images/image-20210428190419649.png)
