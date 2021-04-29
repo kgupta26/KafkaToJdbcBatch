@@ -6,6 +6,8 @@
 * Memory: 6.00 GB
 * Swap: 1 GB
 
+## Download [SBT](https://www.scala-sbt.org/download.html)
+
 # Kafka To JDBC POC
 
 This is a Proof of Concept repository. The POC attempts to ingest data records from a specific kafka topic and insert them into a database staging table. After a certain *time*, we need to call a stored procedure to clean/deduplicate/merge the staging table into the target table. The time aspect is something that is sort of "not figured" out - that is we don't really know when new records are be coming in. Perhaps the topic was "quiet" for about 14 hours straight before it went lit :fire: and new set of streams were produced, say 50,000 records, in just a couple of minutes. And then perhaps it was quiet for about 11 hours before it got pumped with another 58,000.
