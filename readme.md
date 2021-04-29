@@ -36,19 +36,19 @@ When the orchestrator actor receives the "paused" message from the consumer acto
 
 When the consumer actor receives the message, it simply starts the stored procedure call which takes the most amount of time in the whole process.
 
-![image-20210427183249087](/Users/mm10444/Library/Application Support/typora-user-images/image-20210427183249087.png)
+![image-20210427183249087](images/image-20210427183249087.png)
 
 After completion, consumer actor will *tell* the orchestrator that it finished.
 
-![image-20210427183330062](/Users/mm10444/Library/Application Support/typora-user-images/image-20210427183330062.png)
+![image-20210427183330062](images/image-20210427183330062.png)
 
 When the orchestrator receives the message, it resets its internal count to 0 and *tells* consumer actor to start back polling records from topic and insert them into staging table.
 
-![image-20210427183516960](/Users/mm10444/Library/Application Support/typora-user-images/image-20210427183516960.png)
+![image-20210427183516960](images/image-20210427183516960.png)
 
 When the consumer actor receives the message, it opens up the pipeline back on!
 
-![image-20210427183651111](/Users/mm10444/Library/Application Support/typora-user-images/image-20210427183651111.png)
+![image-20210427183651111](images/image-20210427183651111.png)
 
 ## Run the POC
 
